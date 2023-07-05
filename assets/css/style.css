@@ -848,7 +848,7 @@ body.nav-active { overflow: hidden; }
   margin-inline: auto;
   margin-block-end: 6px;
 }
-
+/* this the  line that modifited the text of the book table */
 .hero-btn .span {
   color: var(--black);
   font-weight: var(--weight-bold);
@@ -856,10 +856,11 @@ body.nav-active { overflow: hidden; }
   letter-spacing: var(--letterSpacing-1);
   line-height: var(--lineHeight-3);
 }
-
+ /* this is the line that is use for the border of the book table here 
+ you can  modifited some text and the booking table */
 .hero-btn::after {
   inset: 0;
-  border: 1px solid var(--gold-crayola);
+  border: 1px solid var(--gold-crayola); 
   animation: rotate360 15s linear infinite;
 }
 
@@ -871,6 +872,7 @@ body.nav-active { overflow: hidden; }
 .hero .slider-item.active .slider-reveal {
   animation: sliderReveal 1s ease forwards;
 }
+/* this is the animation of the context */
 
 @keyframes sliderReveal {
   0% {
@@ -883,6 +885,8 @@ body.nav-active { overflow: hidden; }
     opacity: 1;
   }
 }
+/* this is the animation of the text of the hero section
+such as the text at the beggining of the page */
 
 .hero .slider-item.active .section-subtitle { animation-delay: 500ms; }
 
@@ -894,9 +898,53 @@ body.nav-active { overflow: hidden; }
 
 
 
+
+
 /*-----------------------------------*\
   #SERVICE
 \*-----------------------------------*/
+
+.service .section-title { margin-block-end: 16px; }
+
+.service .section-text { margin-block-end: 40px; }
+
+.service-card { overflow: hidden; }
+
+.service-card .has-before {
+  padding-block: 30px;
+  margin-block-end: 26px;
+  z-index: 1;
+}
+/* this will removed the background of the service card */
+
+.service-card .has-before::before {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 100%;
+  background-image: url('../images/img-pattern.svg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: repeat;
+  transition: var(--transition-2);
+  transition-delay: 0;
+  z-index: -1;
+  will-change: transform;
+}
+
+.service-card:is(:hover, :focus-within) .has-before::before {
+  transform: rotateY(0.5turn) translateX(50%);
+  transition-delay: 300ms;
+}
+
+.service-card .card-banner { transition: var(--transition-2); }
+
+.service-card:is(:hover, :focus-within) .card-banner { transform: scale(1.05); }
+
+.service .card-title { margin-block-end: 12px; }
+
+
 
 
 
@@ -906,9 +954,59 @@ body.nav-active { overflow: hidden; }
   #ABOUT
 \*-----------------------------------*/
 
+.about .section-text { margin-block: 15px 30px; }
 
+.about .btn {
+  margin-inline: auto;
+  margin-block-start: 26px;
+}
 
+.about .container {
+  display: grid;
+  gap: 120px;
+}
 
+.about-banner {
+  position: relative;
+  margin-block-end: 120px;
+}
+
+.about-banner > .w-100 { padding-inline-start: 50px; }
+
+.about .abs-img { position: absolute; }
+
+.about .abs-img::before { z-index: -1; }
+
+.about .abs-img-1 {
+  bottom: -120px;
+  left: 0;
+  width: 150px;
+  padding-block: 50px;
+}
+
+.about .abs-img-2 {
+  top: -65px;
+  right: 0;
+  overflow: hidden;
+}
+
+.about .abs-img-1::before {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  background-image: url('../images/img-pattern.svg');
+  background-repeat: repeat;
+}
+
+.about .abs-img-2::before {
+  inset: 0;
+  background-image: url('../images/badge-2-bg.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation: rotate360 15s linear infinite;
+}
 
 /*-----------------------------------*\
   #SPECIAL DISH
